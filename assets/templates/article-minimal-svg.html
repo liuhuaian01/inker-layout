@@ -1,0 +1,101 @@
+<!-- WeChat Article Template: Minimalist Monochrome + SVG Scroll Trigger (极简+SVG滚动触发) -->
+<!-- Clean reveal animation, zero decoration, content-first -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto; padding: 40px 24px 32px 24px;">
+
+  <!-- Title -->
+  <h1 style="font-size: 22px; font-weight: bold; color: #1A1A1A; line-height: 1.4; margin: 0 0 8px 0;">
+    {{ARTICLE_TITLE}}
+  </h1>
+  <p style="font-size: 13px; color: #8A8A8A; margin: 0 0 40px 0;">
+    {{AUTHOR_NAME}} · {{PUBLISH_DATE}}
+  </p>
+
+  <div style="width: 100%; height: 1px; background: #1A1A1A; margin: 0 0 40px 0;"></div>
+
+  {{ARTICLE_BODY}}
+
+  <!-- SVG Scroll-Trigger Reveal Section -->
+  <div style="margin: 48px 0;">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 629 {{SVG_HEIGHT}}" width="100%" height="auto"
+         style="display: block; margin: 0 auto;">
+
+      <defs>
+        <style>
+          @keyframes revealSlide {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes drawMinimalLine {
+            from { stroke-dashoffset: 500; }
+            to { stroke-dashoffset: 0; }
+          }
+          .r-1 { animation: revealSlide 0.5s 0.2s ease-out both; }
+          .r-2 { animation: revealSlide 0.5s 0.4s ease-out both; }
+          .r-3 { animation: revealSlide 0.5s 0.6s ease-out both; }
+          .r-4 { animation: revealSlide 0.5s 0.8s ease-out both; }
+          .r-5 { animation: revealSlide 0.5s 1.0s ease-out both; }
+          .minimal-line {
+            stroke-dasharray: 500;
+            animation: drawMinimalLine 1.2s 0.3s ease-out forwards;
+          }
+        </style>
+      </defs>
+
+      <!-- Guiding line -->
+      <line x1="32" y1="20" x2="32" y2="{{LINE_END}}" stroke="#E5E5E5" stroke-width="1" class="minimal-line"/>
+
+      <!-- Item 1 -->
+      <circle cx="32" cy="60" r="4" fill="#1A1A1A" class="r-1"/>
+      <text x="56" y="56" font-size="14" font-weight="bold" fill="#1A1A1A" class="r-1"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM1_TITLE}}</text>
+      <text x="56" y="76" font-size="13" fill="#4A4A4A" class="r-1"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM1_DESC}}</text>
+
+      <!-- Item 2 -->
+      <circle cx="32" cy="{{Y2}}" r="4" fill="#1A1A1A" class="r-2"/>
+      <text x="56" y="{{Y2_TEXT}}" font-size="14" font-weight="bold" fill="#1A1A1A" class="r-2"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM2_TITLE}}</text>
+      <text x="56" y="{{Y2_TEXT2}}" font-size="13" fill="#4A4A4A" class="r-2"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM2_DESC}}</text>
+
+      <!-- Item 3 -->
+      <circle cx="32" cy="{{Y3}}" r="4" fill="#1A1A1A" class="r-3"/>
+      <text x="56" y="{{Y3_TEXT}}" font-size="14" font-weight="bold" fill="#1A1A1A" class="r-3"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM3_TITLE}}</text>
+      <text x="56" y="{{Y3_TEXT2}}" font-size="13" fill="#4A4A4A" class="r-3"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM3_DESC}}</text>
+
+      <!-- Item 4 -->
+      <circle cx="32" cy="{{Y4}}" r="4" fill="#1A1A1A" class="r-4"/>
+      <text x="56" y="{{Y4_TEXT}}" font-size="14" font-weight="bold" fill="#1A1A1A" class="r-4"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM4_TITLE}}</text>
+      <text x="56" y="{{Y4_TEXT2}}" font-size="13" fill="#4A4A4A" class="r-4"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM4_DESC}}</text>
+
+      <!-- Item 5 -->
+      <circle cx="32" cy="{{Y5}}" r="4" fill="#1A1A1A" class="r-5"/>
+      <text x="56" y="{{Y5_TEXT}}" font-size="14" font-weight="bold" fill="#1A1A1A" class="r-5"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM5_TITLE}}</text>
+      <text x="56" y="{{Y5_TEXT2}}" font-size="13" fill="#4A4A4A" class="r-5"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ITEM5_DESC}}</text>
+
+    </svg>
+
+  </div>
+
+  {{CONTINUED_BODY}}
+
+  <!-- Footer -->
+  <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid #E5E5E5;">
+    <p style="font-size: 14px; color: #1A1A1A; margin: 0;">
+      <a href="{{RELATED_URL}}" style="color: #1A1A1A; text-decoration: underline; text-underline-offset: 3px;">{{RELATED_TEXT}}</a>
+    </p>
+    <p style="font-size: 12px; color: #8A8A8A; margin: 16px 0 0 0;">
+      {{FOOTER_TEXT}}
+    </p>
+  </div>
+
+</div>

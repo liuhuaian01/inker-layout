@@ -1,0 +1,55 @@
+<!-- SVG Template: Auto-Rotating Image Carousel using SMIL -->
+<!-- Slides cycle continuously. Replace {{PLACEHOLDER}} values. -->
+<!-- Each slide should be same width (677px for standard content) -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 677 {{SLIDE_HEIGHT}}" width="100%" height="auto"
+       style="display: block; margin: 0 auto; border-radius: 12px; overflow: hidden;">
+
+    <defs>
+      <clipPath id="carouselClip">
+        <rect x="0" y="0" width="677" height="{{SLIDE_HEIGHT}}" rx="12"/>
+      </clipPath>
+    </defs>
+
+    <!-- Slides container — animated via SMIL translate -->
+    <g clip-path="url(#carouselClip)">
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; {{SLIDE1_X}} 0; {{SLIDE2_X}} 0; {{SLIDE3_X}} 0; {{SLIDE4_X}} 0; 0 0"
+          keyTimes="0; 0.2; 0.25; 0.45; 0.5; 0.7"
+          dur="{{TOTAL_DURATION}}s" repeatCount="indefinite"/>
+
+        <!-- Slide 1 -->
+        <image href="{{SLIDE1_IMAGE}}" x="0" y="0" width="677" height="{{SLIDE_HEIGHT}}" preserveAspectRatio="xMidYMid slice"/>
+
+        <!-- Slide 2 -->
+        <image href="{{SLIDE2_IMAGE}}" x="677" y="0" width="677" height="{{SLIDE_HEIGHT}}" preserveAspectRatio="xMidYMid slice"/>
+
+        <!-- Slide 3 -->
+        <image href="{{SLIDE3_IMAGE}}" x="1354" y="0" width="677" height="{{SLIDE_HEIGHT}}" preserveAspectRatio="xMidYMid slice"/>
+
+        {{ADDITIONAL_SLIDES}}
+      </g>
+    </g>
+
+    <!-- Dot indicators -->
+    <g transform="translate(339, {{DOTS_Y}})">
+      <!-- Dot 1 -->
+      <circle cx="-24" cy="0" r="5" fill="#FFFFFF" opacity="1">
+        <animate attributeName="opacity" values="1;1;0.3;0.3;1;1" keyTimes="0;0.2;0.21;0.69;0.7;1" dur="{{TOTAL_DURATION}}s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Dot 2 -->
+      <circle cx="0" cy="0" r="5" fill="#FFFFFF" opacity="0.3">
+        <animate attributeName="opacity" values="0.3;0.3;1;1;0.3;0.3" keyTimes="0;0.2;0.21;0.44;0.45;1" dur="{{TOTAL_DURATION}}s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Dot 3 -->
+      <circle cx="24" cy="0" r="5" fill="#FFFFFF" opacity="0.3">
+        <animate attributeName="opacity" values="0.3;0.3;0.3;0.3;1;1" keyTimes="0;0.44;0.45;0.69;0.7;1" dur="{{TOTAL_DURATION}}s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+  </svg>
+
+</div>

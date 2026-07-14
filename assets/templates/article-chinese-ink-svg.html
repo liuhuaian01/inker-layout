@@ -1,0 +1,154 @@
+<!-- WeChat Article Template: Chinese Ink Wash + SVG Scroll Reveal (国风+SVG水墨揭示) -->
+<!-- Ink wash reveal effect with vermillion seal stamps, Kaishu typography -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <!-- Header -->
+  <div style="padding: 48px 32px 32px 32px; background: #FDF8F0; text-align: center;">
+    <div style="margin: 0 0 20px 0;">
+      <span style="display: inline-block; width: 24px; height: 1px; background: #C13A2B; vertical-align: middle;"></span>
+      <span style="display: inline-block; width: 4px; height: 4px; margin: 0 10px; vertical-align: middle; background: #C13A2B; border-radius: 50%;"></span>
+      <span style="display: inline-block; width: 24px; height: 1px; background: #C13A2B; vertical-align: middle;"></span>
+    </div>
+    <p style="font-size: 12px; color: #8C7B6B; letter-spacing: 6px; margin: 0 0 16px 0; font-family: 'KaiTi', 'STKaiti', serif;">
+      {{CATEGORY_LABEL}}
+    </p>
+    <h1 style="font-size: 26px; font-weight: normal; color: #1A1A1A; line-height: 1.6; margin: 0; font-family: 'KaiTi', 'STKaiti', 'Songti SC', serif; letter-spacing: 2px;">
+      {{ARTICLE_TITLE}}
+    </h1>
+  </div>
+
+  <!-- SVG Ink Wash Timeline -->
+  <div style="background: #FDF8F0;">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 613 {{SVG_HEIGHT}}" width="100%" height="auto"
+         style="display: block; margin: 0 auto;">
+
+      <defs>
+        <style>
+          @keyframes inkDrop {
+            0% { opacity: 0; transform: scale(0.3); }
+            60% { opacity: 0.8; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+          }
+          @keyframes brushStroke {
+            from { stroke-dashoffset: 1200; }
+            to { stroke-dashoffset: 0; }
+          }
+          @keyframes sealStamp {
+            0% { opacity: 0; transform: scale(2) rotate(-15deg); }
+            60% { opacity: 1; transform: scale(0.9) rotate(2deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); }
+          }
+          @keyframes textFade {
+            from { opacity: 0; transform: translateX(-15px); }
+            to { opacity: 1; transform: translateX(0); }
+          }
+          .ink-line {
+            stroke-dasharray: 1200;
+            animation: brushStroke 2.5s 0.3s ease-out forwards;
+          }
+          .seal-1 { animation: sealStamp 0.6s 0.5s ease-out both; }
+          .seal-2 { animation: sealStamp 0.6s 1.2s ease-out both; }
+          .seal-3 { animation: sealStamp 0.6s 1.9s ease-out both; }
+          .seal-4 { animation: sealStamp 0.6s 2.6s ease-out both; }
+          .text-1 { animation: textFade 0.6s 0.7s ease-out both; }
+          .text-2 { animation: textFade 0.6s 1.4s ease-out both; }
+          .text-3 { animation: textFade 0.6s 2.1s ease-out both; }
+          .text-4 { animation: textFade 0.6s 2.8s ease-out both; }
+        </style>
+      </defs>
+
+      <!-- Ink brush stroke line -->
+      <line x1="56" y1="30" x2="56" y2="{{LINE_END}}" stroke="#D4C4A8" stroke-width="1.5" class="ink-line"/>
+
+      <!-- Seal 1 — vermillion circle with character -->
+      <g class="seal-1">
+        <circle cx="56" cy="80" r="16" fill="#C13A2B"/>
+        <text x="56" y="86" text-anchor="middle" font-size="13" font-weight="bold" fill="#FDF8F0"
+              font-family="'KaiTi', 'STKaiti', serif">{{SEAL1_CHAR}}</text>
+      </g>
+      <text x="92" y="76" font-size="12" fill="#8C7B6B" class="text-1"
+            font-family="'KaiTi', 'STKaiti', serif">{{DATE1}}</text>
+      <text x="92" y="98" font-size="16" font-weight="bold" fill="#2C2416" class="text-1"
+            font-family="'KaiTi', 'STKaiti', serif">{{TITLE1}}</text>
+      <text x="92" y="120" font-size="13" fill="#5C4A3A" class="text-1"
+            font-family="'Songti SC', 'SimSun', serif">{{DESC1}}</text>
+
+      <!-- Seal 2 -->
+      <g class="seal-2">
+        <circle cx="56" cy="{{Y2}}" r="16" fill="#C13A2B"/>
+        <text x="56" y="{{Y2_TEXT}}" text-anchor="middle" font-size="13" font-weight="bold" fill="#FDF8F0"
+              font-family="'KaiTi', 'STKaiti', serif">{{SEAL2_CHAR}}</text>
+      </g>
+      <text x="92" y="{{Y2-4}}" font-size="12" fill="#8C7B6B" class="text-2"
+            font-family="'KaiTi', 'STKaiti', serif">{{DATE2}}</text>
+      <text x="92" y="{{Y2+18}}" font-size="16" font-weight="bold" fill="#2C2416" class="text-2"
+            font-family="'KaiTi', 'STKaiti', serif">{{TITLE2}}</text>
+      <text x="92" y="{{Y2+40}}" font-size="13" fill="#5C4A3A" class="text-2"
+            font-family="'Songti SC', 'SimSun', serif">{{DESC2}}</text>
+
+      <!-- Seal 3 -->
+      <g class="seal-3">
+        <circle cx="56" cy="{{Y3}}" r="16" fill="#C13A2B"/>
+        <text x="56" y="{{Y3_TEXT}}" text-anchor="middle" font-size="13" font-weight="bold" fill="#FDF8F0"
+              font-family="'KaiTi', 'STKaiti', serif">{{SEAL3_CHAR}}</text>
+      </g>
+      <text x="92" y="{{Y3-4}}" font-size="12" fill="#8C7B6B" class="text-3"
+            font-family="'KaiTi', 'STKaiti', serif">{{DATE3}}</text>
+      <text x="92" y="{{Y3+18}}" font-size="16" font-weight="bold" fill="#2C2416" class="text-3"
+            font-family="'KaiTi', 'STKaiti', serif">{{TITLE3}}</text>
+      <text x="92" y="{{Y3+40}}" font-size="13" fill="#5C4A3A" class="text-3"
+            font-family="'Songti SC', 'SimSun', serif">{{DESC3}}</text>
+
+      <!-- Seal 4 -->
+      <g class="seal-4">
+        <circle cx="56" cy="{{Y4}}" r="16" fill="#C13A2B"/>
+        <text x="56" y="{{Y4_TEXT}}" text-anchor="middle" font-size="13" font-weight="bold" fill="#FDF8F0"
+              font-family="'KaiTi', 'STKaiti', serif">{{SEAL4_CHAR}}</text>
+      </g>
+      <text x="92" y="{{Y4-4}}" font-size="12" fill="#8C7B6B" class="text-4"
+            font-family="'KaiTi', 'STKaiti', serif">{{DATE4}}</text>
+      <text x="92" y="{{Y4+18}}" font-size="16" font-weight="bold" fill="#2C2416" class="text-4"
+            font-family="'KaiTi', 'STKaiti', serif">{{TITLE4}}</text>
+      <text x="92" y="{{Y4+40}}" font-size="13" fill="#5C4A3A" class="text-4"
+            font-family="'Songti SC', 'SimSun', serif">{{DESC4}}</text>
+
+    </svg>
+
+  </div>
+
+  <!-- Content -->
+  <div style="padding: 32px 32px 0 32px; background: #FDF8F0;">
+
+    {{ARTICLE_BODY}}
+
+    <!-- Organic divider -->
+    <div style="margin: 40px 0; text-align: center;">
+      <span style="color: #D4C4A8; font-size: 14px; font-family: 'KaiTi', 'STKaiti', serif;">· · ·</span>
+    </div>
+
+    {{REMAINING_BODY}}
+
+    <!-- CTA seal -->
+    <div style="text-align: center; margin: 8px 0 32px 0;">
+      <a href="{{CTA_LINK}}" style="display: inline-block; width: 80px; height: 80px; line-height: 80px; background: #C13A2B; color: #FDF8F0; font-size: 14px; font-weight: bold; border-radius: 50%; text-decoration: none; text-align: center; font-family: 'KaiTi', 'STKaiti', serif; letter-spacing: 2px;">
+        {{CTA_TEXT}}
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div style="padding: 32px 32px 48px 32px; background: #FDF8F0; text-align: center;">
+    <div style="width: 40px; height: 1px; background: #D4C4A8; margin: 0 auto 20px;"></div>
+    <p style="font-size: 13px; color: #8C7B6B; margin: 0 0 4px 0; font-family: 'Songti SC', 'SimSun', serif;">
+      {{PUBLICATION_NAME}}
+    </p>
+    <p style="font-size: 11px; color: #B0A590; margin: 0; font-family: 'Songti SC', 'SimSun', serif;">
+      {{FOOTER_TEXT}}
+    </p>
+  </div>
+
+</div>

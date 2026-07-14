@@ -1,0 +1,83 @@
+<!-- SVG Component: Click Hotspot Image Map (图片热区点击) -->
+<!-- Full-width image with clickable transparent regions linking to different URLs -->
+<!-- Reliable cross-platform — uses only <a xlink:href> inside SVG -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 677 {{IMAGE_HEIGHT}}" width="100%" height="auto"
+       style="display: block; margin: 0 auto; border-radius: 12px; overflow: hidden;">
+
+    <defs>
+      <style>
+        @keyframes hotspotPulse {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+        @keyframes fadeInHint {
+          0%, 70% { opacity: 0; transform: translateY(8px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .hotspot-indicator { animation: hotspotPulse 2s ease-in-out infinite; }
+        .hint { animation: fadeInHint 1.5s 0.5s ease-out both; }
+      </style>
+    </defs>
+
+    <!-- Background image -->
+    <image href="{{BACKGROUND_IMAGE}}" x="0" y="0" width="677" height="{{IMAGE_HEIGHT}}" preserveAspectRatio="xMidYMid slice"/>
+
+    <!-- Semi-transparent overlay for hotspots -->
+    <rect x="0" y="0" width="677" height="{{IMAGE_HEIGHT}}" fill="rgba(0,0,0,0.15)"/>
+
+    <!-- Hotspot 1 -->
+    <a xlink:href="{{HOTSPOT1_URL}}" target="_blank">
+      <!-- Clickable area -->
+      <rect x="{{HS1_X}}" y="{{HS1_Y}}" width="{{HS1_W}}" height="{{HS1_H}}" rx="12" fill="rgba(255,255,255,0.15)"/>
+      <!-- Pulse indicator ring -->
+      <rect x="{{HS1_X}}" y="{{HS1_Y}}" width="{{HS1_W}}" height="{{HS1_H}}" rx="12" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
+      <rect x="{{HS1_X}}" y="{{HS1_Y}}" width="{{HS1_W}}" height="{{HS1_H}}" rx="12" fill="none" stroke="#FFFFFF" stroke-width="2" class="hotspot-indicator"/>
+      <!-- Label -->
+      <text x="{{HS1_CX}}" y="{{HS1_CY}}" text-anchor="middle" font-size="16" font-weight="bold" fill="#FFFFFF"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{HS1_LABEL}}</text>
+      <text x="{{HS1_CX}}" y="{{HS1_CY2}}" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.7)" class="hint"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">点击查看 →</text>
+    </a>
+
+    <!-- Hotspot 2 -->
+    <a xlink:href="{{HOTSPOT2_URL}}" target="_blank">
+      <rect x="{{HS2_X}}" y="{{HS2_Y}}" width="{{HS2_W}}" height="{{HS2_H}}" rx="12" fill="rgba(255,255,255,0.15)"/>
+      <rect x="{{HS2_X}}" y="{{HS2_Y}}" width="{{HS2_W}}" height="{{HS2_H}}" rx="12" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
+      <rect x="{{HS2_X}}" y="{{HS2_Y}}" width="{{HS2_W}}" height="{{HS2_H}}" rx="12" fill="none" stroke="#FFFFFF" stroke-width="2" class="hotspot-indicator"/>
+      <text x="{{HS2_CX}}" y="{{HS2_CY}}" text-anchor="middle" font-size="16" font-weight="bold" fill="#FFFFFF"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{HS2_LABEL}}</text>
+      <text x="{{HS2_CX}}" y="{{HS2_CY2}}" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.7)" class="hint"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">点击查看 →</text>
+    </a>
+
+    <!-- Hotspot 3 (optional) -->
+    {{HOTSPOT3}}
+
+    <!-- Hotspot 4 (optional) -->
+    {{HOTSPOT4}}
+
+    <!-- Title overlay -->
+    <text x="339" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#FFFFFF"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{OVERLAY_TITLE}}
+    </text>
+
+  </svg>
+
+</div>
+
+<!--
+  Optional additional hotspots (paste these into {{HOTSPOT3}} / {{HOTSPOT4}}):
+
+  <a xlink:href="{{URL}}" target="_blank">
+    <rect x="{{X}}" y="{{Y}}" width="{{W}}" height="{{H}}" rx="12" fill="rgba(255,255,255,0.15)"/>
+    <rect x="{{X}}" y="{{Y}}" width="{{W}}" height="{{H}}" rx="12" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
+    <rect x="{{X}}" y="{{Y}}" width="{{W}}" height="{{H}}" rx="12" fill="none" stroke="#FFFFFF" stroke-width="2" class="hotspot-indicator"/>
+    <text x="{{CX}}" y="{{CY}}" text-anchor="middle" font-size="16" font-weight="bold" fill="#FFFFFF">Label</text>
+    <text x="{{CX}}" y="{{CY2}}" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.7)" class="hint">点击查看 →</text>
+  </a>
+-->

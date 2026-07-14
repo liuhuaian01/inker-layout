@@ -1,0 +1,100 @@
+<!-- SVG Template: Auto-Expanding Accordion Sections -->
+<!-- Sections expand in sequence using CSS animation timing -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 677 {{SVG_HEIGHT}}" width="100%" height="auto"
+       style="display: block; margin: 0 auto;">
+
+    <defs>
+      <style>
+        @keyframes expandSection {
+          0%, 5% { max-height: 60px; }
+          10%, 100% { max-height: 300px; }
+        }
+        @keyframes rotateChevron {
+          0%, 5% { transform: rotate(0deg); }
+          10%, 100% { transform: rotate(180deg); }
+        }
+        @keyframes fadeInContent {
+          0%, 8% { opacity: 0; }
+          12%, 100% { opacity: 1; }
+        }
+        .section-1 { animation: expandSection {{DURATION}}s ease-out forwards; }
+        .section-2 { animation: expandSection {{DURATION}}s {{DELAY2}}s ease-out forwards; }
+        .section-3 { animation: expandSection {{DURATION}}s {{DELAY3}}s ease-out forwards; }
+        .chevron-1 { animation: rotateChevron {{DURATION}}s ease-out forwards; transform-origin: 640px {{CHEVRON1_Y}}px; }
+        .chevron-2 { animation: rotateChevron {{DURATION}}s {{DELAY2}}s ease-out forwards; transform-origin: 640px {{CHEVRON2_Y}}px; }
+        .chevron-3 { animation: rotateChevron {{DURATION}}s {{DELAY3}}s ease-out forwards; transform-origin: 640px {{CHEVRON3_Y}}px; }
+        .content-1 { animation: fadeInContent {{DURATION}}s ease-out forwards; }
+        .content-2 { animation: fadeInContent {{DURATION}}s {{DELAY2}}s ease-out forwards; }
+        .content-3 { animation: fadeInContent {{DURATION}}s {{DELAY3}}s ease-out forwards; }
+      </style>
+
+      <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="{{ACCENT_COLOR}}"/>
+        <stop offset="100%" stop-color="{{ACCENT_COLOR_ALT}}"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Title -->
+    <text x="339" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#333333"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{SECTION_TITLE}}
+    </text>
+
+    <!-- Section 1 -->
+    <g>
+      <rect x="24" y="70" width="629" height="60" rx="12" fill="url(#headerGrad)"/>
+      <text x="44" y="106" font-size="16" font-weight="bold" fill="#FFFFFF"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ACCORDION1_TITLE}}</text>
+      <text x="640" y="106" text-anchor="middle" font-size="14" fill="#FFFFFF" class="chevron-1"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">▼</text>
+      <g class="content-1">
+        <text x="44" y="150" font-size="14" fill="#666666"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">
+          <tspan x="44" dy="0">{{ACCORDION1_LINE1}}</tspan>
+          <tspan x="44" dy="22">{{ACCORDION1_LINE2}}</tspan>
+          <tspan x="44" dy="22">{{ACCORDION1_LINE3}}</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- Section 2 -->
+    <g>
+      <rect x="24" y="{{SECTION2_Y}}" width="629" height="60" rx="12" fill="url(#headerGrad)"/>
+      <text x="44" y="{{SECTION2_TEXT_Y}}" font-size="16" font-weight="bold" fill="#FFFFFF"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ACCORDION2_TITLE}}</text>
+      <text x="640" y="{{SECTION2_TEXT_Y}}" text-anchor="middle" font-size="14" fill="#FFFFFF" class="chevron-2"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">▼</text>
+      <g class="content-2">
+        <text x="44" y="{{SECTION2_CONTENT_Y}}" font-size="14" fill="#666666"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">
+          <tspan x="44" dy="0">{{ACCORDION2_LINE1}}</tspan>
+          <tspan x="44" dy="22">{{ACCORDION2_LINE2}}</tspan>
+          <tspan x="44" dy="22">{{ACCORDION2_LINE3}}</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- Section 3 -->
+    <g>
+      <rect x="24" y="{{SECTION3_Y}}" width="629" height="60" rx="12" fill="url(#headerGrad)"/>
+      <text x="44" y="{{SECTION3_TEXT_Y}}" font-size="16" font-weight="bold" fill="#FFFFFF"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{ACCORDION3_TITLE}}</text>
+      <text x="640" y="{{SECTION3_TEXT_Y}}" text-anchor="middle" font-size="14" fill="#FFFFFF" class="chevron-3"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">▼</text>
+      <g class="content-3">
+        <text x="44" y="{{SECTION3_CONTENT_Y}}" font-size="14" fill="#666666"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">
+          <tspan x="44" dy="0">{{ACCORDION3_LINE1}}</tspan>
+          <tspan x="44" dy="22">{{ACCORDION3_LINE2}}</tspan>
+          <tspan x="44" dy="22">{{ACCORDION3_LINE3}}</tspan>
+        </text>
+      </g>
+    </g>
+
+  </svg>
+
+</div>

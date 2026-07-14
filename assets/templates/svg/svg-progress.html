@@ -1,0 +1,79 @@
+<!-- SVG Template: Animated Progress Bar / Countdown -->
+<!-- Auto-animated progress with count/percentage display -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 677 {{SVG_HEIGHT}}" width="100%" height="auto"
+       style="display: block; margin: 0 auto;">
+
+    <defs>
+      <style>
+        @keyframes countUp {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes pulseValue {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+        }
+        .count-anim { animation: countUp 0.5s ease-out both; }
+        .pulse { animation: pulseValue 2s ease-in-out infinite; }
+      </style>
+
+      <linearGradient id="progressGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="{{PROGRESS_COLOR_START}}"/>
+        <stop offset="100%" stop-color="{{PROGRESS_COLOR_END}}"/>
+      </linearGradient>
+
+      <linearGradient id="progressBgGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="{{BG_COLOR_START}}"/>
+        <stop offset="100%" stop-color="{{BG_COLOR_END}}"/>
+      </linearGradient>
+
+      <filter id="progressGlow" x="-10%" y="-50%" width="120%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <!-- Title -->
+    <text x="339" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#333333"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{PROGRESS_TITLE}}
+    </text>
+
+    <!-- Subtitle / description -->
+    <text x="339" y="68" text-anchor="middle" font-size="13" fill="#999999"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{PROGRESS_SUBTITLE}}
+    </text>
+
+    <!-- Progress bar background -->
+    <rect x="50" y="100" width="577" height="{{BAR_HEIGHT}}" rx="{{BAR_RADIUS}}" fill="url(#progressBgGrad)"/>
+
+    <!-- Progress bar fill -->
+    <rect x="50" y="100" width="0" height="{{BAR_HEIGHT}}" rx="{{BAR_RADIUS}}" fill="url(#progressGrad)" filter="url(#progressGlow)">
+      <animate attributeName="width" from="0" to="{{FILL_WIDTH}}" dur="{{ANIM_DURATION}}s" fill="freeze"/>
+    </rect>
+
+    <!-- Percentage / count -->
+    <text x="339" y="{{VALUE_Y}}" text-anchor="middle" font-size="{{VALUE_SIZE}}" font-weight="bold" fill="{{VALUE_COLOR}}" class="pulse"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{PROGRESS_VALUE}}
+    </text>
+
+    <!-- Label below percentage -->
+    <text x="339" y="{{LABEL_Y}}" text-anchor="middle" font-size="14" fill="#666666"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{PROGRESS_LABEL}}
+    </text>
+
+    {{ADDITIONAL_ITEMS}}
+
+  </svg>
+
+</div>

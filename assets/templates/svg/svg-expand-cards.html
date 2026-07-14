@@ -1,0 +1,153 @@
+<!-- SVG Component: Auto-Expanding Card Stack (自动展开卡片叠) -->
+<!-- Cards expand one by one with staggered timing. Inspired by opensvg expanding containers. -->
+<!-- Use for: product features, step-by-step guide, service highlights -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 645 {{TOTAL_HEIGHT}}" width="100%" height="auto"
+       style="display: block; margin: 0 auto;">
+
+    <defs>
+      <style>
+        @keyframes expandCard {
+          0%, 10% { height: 80px; }
+          25%, 100% { height: 240px; }
+        }
+        @keyframes fadeInDetails {
+          0%, 15% { opacity: 0; }
+          25%, 100% { opacity: 1; }
+        }
+        @keyframes slideInIndicator {
+          0%, 10% { transform: rotate(0deg); }
+          25%, 100% { transform: rotate(180deg); }
+        }
+
+        .card-bg-1 { animation: expandCard 12s ease-in-out infinite; }
+        .card-bg-2 { animation: expandCard 12s 0.5s ease-in-out infinite; }
+        .card-bg-3 { animation: expandCard 12s 1.0s ease-in-out infinite; }
+        .card-bg-4 { animation: expandCard 12s 1.5s ease-in-out infinite; }
+
+        .detail-1 { animation: fadeInDetails 12s ease-in-out infinite; }
+        .detail-2 { animation: fadeInDetails 12s 0.5s ease-in-out infinite; }
+        .detail-3 { animation: fadeInDetails 12s 1.0s ease-in-out infinite; }
+        .detail-4 { animation: fadeInDetails 12s 1.5s ease-in-out infinite; }
+      </style>
+
+      <linearGradient id="cardGrad1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="{{CARD1_COLOR}}"/>
+        <stop offset="100%" stop-color="{{CARD1_COLOR_ALT}}"/>
+      </linearGradient>
+      <linearGradient id="cardGrad2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="{{CARD2_COLOR}}"/>
+        <stop offset="100%" stop-color="{{CARD2_COLOR_ALT}}"/>
+      </linearGradient>
+      <linearGradient id="cardGrad3" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="{{CARD3_COLOR}}"/>
+        <stop offset="100%" stop-color="{{CARD3_COLOR_ALT}}"/>
+      </linearGradient>
+      <linearGradient id="cardGrad4" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="{{CARD4_COLOR}}"/>
+        <stop offset="100%" stop-color="{{CARD4_COLOR_ALT}}"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Title -->
+    <text x="323" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#333333"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{SECTION_TITLE}}
+    </text>
+
+    <!-- Card 1 -->
+    <a xlink:href="{{CARD1_LINK}}" target="_blank">
+      <g>
+        <rect x="8" y="70" width="629" height="80" rx="16" fill="url(#cardGrad1)" class="card-bg-1"/>
+        <!-- Header (always visible) -->
+        <text x="32" y="106" font-size="18" font-weight="bold" fill="#FFFFFF"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD1_TITLE}}</text>
+        <text x="32" y="130" font-size="13" fill="rgba(255,255,255,0.7)"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD1_SUBTITLE}}</text>
+        <!-- Expand indicator -->
+        <text x="605" y="115" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.6)" class="detail-1"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">▼</text>
+        <!-- Details (revealed on expand) -->
+        <text x="32" y="180" font-size="13" fill="rgba(255,255,255,0.9)" class="detail-1"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">
+          <tspan x="32" dy="0">{{CARD1_DETAIL1}}</tspan>
+          <tspan x="32" dy="22">{{CARD1_DETAIL2}}</tspan>
+          <tspan x="32" dy="22">{{CARD1_DETAIL3}}</tspan>
+        </text>
+      </g>
+    </a>
+
+    <!-- Card 2 -->
+    <a xlink:href="{{CARD2_LINK}}" target="_blank">
+      <g>
+        <rect x="8" y="{{CARD2_Y}}" width="629" height="80" rx="16" fill="url(#cardGrad2)" class="card-bg-2"/>
+        <text x="32" y="{{CARD2_TITLE_Y}}" font-size="18" font-weight="bold" fill="#FFFFFF"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD2_TITLE}}</text>
+        <text x="32" y="{{CARD2_SUB_Y}}" font-size="13" fill="rgba(255,255,255,0.7)"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD2_SUBTITLE}}</text>
+        <text x="605" y="{{CARD2_IND_Y}}" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.6)" class="detail-2"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">▼</text>
+        <text x="32" y="{{CARD2_DET_Y}}" font-size="13" fill="rgba(255,255,255,0.9)" class="detail-2"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">
+          <tspan x="32" dy="0">{{CARD2_DETAIL1}}</tspan>
+          <tspan x="32" dy="22">{{CARD2_DETAIL2}}</tspan>
+          <tspan x="32" dy="22">{{CARD2_DETAIL3}}</tspan>
+        </text>
+      </g>
+    </a>
+
+    <!-- Card 3 -->
+    <a xlink:href="{{CARD3_LINK}}" target="_blank">
+      <g>
+        <rect x="8" y="{{CARD3_Y}}" width="629" height="80" rx="16" fill="url(#cardGrad3)" class="card-bg-3"/>
+        <text x="32" y="{{CARD3_TITLE_Y}}" font-size="18" font-weight="bold" fill="#FFFFFF"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD3_TITLE}}</text>
+        <text x="32" y="{{CARD3_SUB_Y}}" font-size="13" fill="rgba(255,255,255,0.7)"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD3_SUBTITLE}}</text>
+        <text x="605" y="{{CARD3_IND_Y}}" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.6)" class="detail-3"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">▼</text>
+        <text x="32" y="{{CARD3_DET_Y}}" font-size="13" fill="rgba(255,255,255,0.9)" class="detail-3"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">
+          <tspan x="32" dy="0">{{CARD3_DETAIL1}}</tspan>
+          <tspan x="32" dy="22">{{CARD3_DETAIL2}}</tspan>
+          <tspan x="32" dy="22">{{CARD3_DETAIL3}}</tspan>
+        </text>
+      </g>
+    </a>
+
+    <!-- Card 4 -->
+    <a xlink:href="{{CARD4_LINK}}" target="_blank">
+      <g>
+        <rect x="8" y="{{CARD4_Y}}" width="629" height="80" rx="16" fill="url(#cardGrad4)" class="card-bg-4"/>
+        <text x="32" y="{{CARD4_TITLE_Y}}" font-size="18" font-weight="bold" fill="#FFFFFF"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD4_TITLE}}</text>
+        <text x="32" y="{{CARD4_SUB_Y}}" font-size="13" fill="rgba(255,255,255,0.7)"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD4_SUBTITLE}}</text>
+        <text x="605" y="{{CARD4_IND_Y}}" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.6)" class="detail-4"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">▼</text>
+        <text x="32" y="{{CARD4_DET_Y}}" font-size="13" fill="rgba(255,255,255,0.9)" class="detail-4"
+              font-family="PingFang SC, Microsoft YaHei, sans-serif">
+          <tspan x="32" dy="0">{{CARD4_DETAIL1}}</tspan>
+          <tspan x="32" dy="22">{{CARD4_DETAIL2}}</tspan>
+          <tspan x="32" dy="22">{{CARD4_DETAIL3}}</tspan>
+        </text>
+      </g>
+    </a>
+
+  </svg>
+
+</div>
+
+<!--
+  Card spacing calculator:
+  Each card: 80px collapsed, 240px expanded (height animation)
+  Card 1: y=70, Card 2: y=320, Card 3: y=570, Card 4: y=820
+  TOTAL_HEIGHT: y_of_last_card + 240 (expanded) + 30 (padding) = 1090
+
+  For more cards, add ~250px per card to TOTAL_HEIGHT.
+  Each card is wrapped in <a> tag — tapping any card opens its link.
+  The expand animation auto-cycles; user naturally scrolls through expanded cards.
+-->

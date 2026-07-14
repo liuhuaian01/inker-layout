@@ -1,0 +1,71 @@
+<!-- SVG Template: Before/After Image Comparison Slider -->
+<!-- Auto-animated reveal using clip-path -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 677 {{IMAGE_HEIGHT}}" width="100%" height="auto"
+       style="display: block; margin: 0 auto; border-radius: 12px; overflow: hidden;">
+
+    <defs>
+      <clipPath id="revealClip">
+        <rect x="0" y="0" width="0" height="{{IMAGE_HEIGHT}}">
+          <animate attributeName="width" from="{{REVEAL_START}}" to="{{REVEAL_END}}" dur="{{REVEAL_DURATION}}s" begin="{{REVEAL_DELAY}}s" fill="freeze"/>
+        </rect>
+      </clipPath>
+
+      <style>
+        @keyframes slideDivider {
+          from { transform: translateX({{DIVIDER_START}}px); }
+          to { transform: translateX({{DIVIDER_END}}px); }
+        }
+        .divider-group {
+          animation: slideDivider {{REVEAL_DURATION}}s {{REVEAL_DELAY}}s ease-out forwards;
+        }
+        @keyframes fadeInLabel {
+          0%, 70% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+        .label { animation: fadeInLabel {{REVEAL_DURATION}}s {{REVEAL_DELAY}}s ease-out forwards; }
+      </style>
+    </defs>
+
+    <!-- Before image (full) -->
+    <image href="{{BEFORE_IMAGE}}" x="0" y="0" width="677" height="{{IMAGE_HEIGHT}}" preserveAspectRatio="xMidYMid slice"/>
+
+    <!-- After image (revealed by clip) -->
+    <image href="{{AFTER_IMAGE}}" x="0" y="0" width="677" height="{{IMAGE_HEIGHT}}" preserveAspectRatio="xMidYMid slice" clip-path="url(#revealClip)"/>
+
+    <!-- Before label -->
+    <rect x="16" y="16" width="70" height="28" rx="14" fill="rgba(0,0,0,0.5)"/>
+    <text x="51" y="35" text-anchor="middle" font-size="12" fill="#FFFFFF"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">{{BEFORE_LABEL}}</text>
+
+    <!-- After label -->
+    <rect x="{{AFTER_LABEL_X}}" y="16" width="70" height="28" rx="14" fill="rgba(0,0,0,0.5)" class="label"/>
+    <text x="{{AFTER_LABEL_TEXT_X}}" y="35" text-anchor="middle" font-size="12" fill="#FFFFFF"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif" class="label">{{AFTER_LABEL}}</text>
+
+    <!-- Sliding divider line -->
+    <g class="divider-group">
+      <line x1="0" y1="0" x2="0" y2="{{IMAGE_HEIGHT}}" stroke="#FFFFFF" stroke-width="3">
+        <animate attributeName="x1" from="{{DIVIDER_START}}" to="{{DIVIDER_END}}" dur="{{REVEAL_DURATION}}s" begin="{{REVEAL_DELAY}}s" fill="freeze"/>
+        <animate attributeName="x2" from="{{DIVIDER_START}}" to="{{DIVIDER_END}}" dur="{{REVEAL_DURATION}}s" begin="{{REVEAL_DELAY}}s" fill="freeze"/>
+      </line>
+
+      <!-- Divider handle -->
+      <circle cx="0" cy="{{IMAGE_HEIGHT}}/2" r="20" fill="#FFFFFF" opacity="0.9">
+        <animate attributeName="cx" from="{{DIVIDER_START}}" to="{{DIVIDER_END}}" dur="{{REVEAL_DURATION}}s" begin="{{REVEAL_DELAY}}s" fill="freeze"/>
+      </circle>
+
+      <!-- Handle arrows -->
+      <text x="0" y="{{IMAGE_HEIGHT}}/2+5" text-anchor="middle" font-size="14" fill="#333333" class="divider-group"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">
+        ◀▶
+        <animate attributeName="x" from="{{DIVIDER_START}}" to="{{DIVIDER_END}}" dur="{{REVEAL_DURATION}}s" begin="{{REVEAL_DELAY}}s" fill="freeze"/>
+      </text>
+    </g>
+
+  </svg>
+
+</div>

@@ -1,0 +1,122 @@
+<!-- WeChat Article Template: Trendy Street + SVG Click Reveal (潮流+SVG揭示) -->
+<!-- Interactive trend cards that reveal on click -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <!-- Hero Gradient Banner -->
+  <div style="background: linear-gradient(135deg, #6C5CE7 0%, #00D2FF 100%); padding: 48px 24px; text-align: center;">
+    <p style="font-size: 36px; margin: 0 0 12px 0;">{{HERO_EMOJI}}</p>
+    <h1 style="font-size: 24px; font-weight: bold; color: #FFFFFF; line-height: 1.3; margin: 0 0 8px 0;">
+      {{ARTICLE_TITLE}}
+    </h1>
+    <p style="font-size: 13px; color: rgba(255,255,255,0.7); margin: 0;">
+      {{SUBTITLE}}
+    </p>
+  </div>
+
+  <!-- SVG Click-to-Reveal Trend Cards -->
+  <div style="margin: 24px 16px;">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 645 {{SVG_HEIGHT}}" width="100%" height="auto"
+         style="display: block; margin: 0 auto;">
+
+      <defs>
+        <style>
+          @keyframes cardPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+          }
+          @keyframes revealContent {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 200px; }
+          }
+          .card-hover { animation: cardPulse 3s ease-in-out infinite; }
+        </style>
+      </defs>
+
+      <!-- Card 1 -->
+      <a xlink:href="{{CARD1_LINK}}" target="_blank">
+        <g>
+          <rect x="0" y="0" width="645" height="140" rx="16" fill="{{CARD1_BG}}"/>
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              from="0 0" to="0 -8" dur="1.5s" fill="freeze"/>
+          </g>
+          <text x="24" y="36" font-size="28" font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD1_EMOJI}}</text>
+          <text x="70" y="36" font-size="18" font-weight="bold" fill="#FFFFFF"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD1_TITLE}}</text>
+          <text x="70" y="60" font-size="13" fill="rgba(255,255,255,0.75)"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD1_DESC}}</text>
+          <text x="70" y="90" font-size="12" fill="rgba(255,255,255,0.5)"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD1_META}}</text>
+          <text x="605" y="36" text-anchor="middle" font-size="24" fill="rgba(255,255,255,0.5)"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">→</text>
+        </g>
+      </a>
+
+      <!-- Card 2 -->
+      <a xlink:href="{{CARD2_LINK}}" target="_blank">
+        <g>
+          <rect x="0" y="160" width="645" height="140" rx="16" fill="{{CARD2_BG}}"/>
+          <text x="24" y="196" font-size="28" font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD2_EMOJI}}</text>
+          <text x="70" y="196" font-size="18" font-weight="bold" fill="#FFFFFF"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD2_TITLE}}</text>
+          <text x="70" y="220" font-size="13" fill="rgba(255,255,255,0.75)"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD2_DESC}}</text>
+          <text x="70" y="250" font-size="12" fill="rgba(255,255,255,0.5)"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD2_META}}</text>
+          <text x="605" y="196" text-anchor="middle" font-size="24" fill="rgba(255,255,255,0.5)"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">→</text>
+        </g>
+      </a>
+
+      <!-- Card 3 -->
+      <a xlink:href="{{CARD3_LINK}}" target="_blank">
+        <g>
+          <rect x="0" y="320" width="645" height="140" rx="16" fill="{{CARD3_BG}}"/>
+          <text x="24" y="356" font-size="28" font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD3_EMOJI}}</text>
+          <text x="70" y="356" font-size="18" font-weight="bold" fill="#FFFFFF"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD3_TITLE}}</text>
+          <text x="70" y="380" font-size="13" fill="rgba(255,255,255,0.75)"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD3_DESC}}</text>
+          <text x="70" y="410" font-size="12" fill="rgba(255,255,255,0.5)"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD3_META}}</text>
+          <text x="605" y="356" text-anchor="middle" font-size="24" fill="rgba(255,255,255,0.5)"
+                font-family="PingFang SC, Microsoft YaHei, sans-serif">→</text>
+        </g>
+      </a>
+
+    </svg>
+
+  </div>
+
+  <!-- Content -->
+  <div style="padding: 16px 20px 24px 20px;">
+
+    {{ARTICLE_BODY}}
+
+    <!-- Color Highlight Block -->
+    <div style="margin: 32px 0; padding: 28px 20px; background: linear-gradient(135deg, #FF6B35, #FFD93D); border-radius: 20px; box-shadow: 0 8px 24px rgba(255,107,53,0.3); text-align: center;">
+      <p style="font-size: 28px; margin: 0 0 8px 0;">{{HL_EMOJI}}</p>
+      <p style="font-size: 16px; font-weight: bold; color: #FFFFFF; line-height: 1.5; margin: 0;">{{HL_TEXT}}</p>
+    </div>
+
+    {{REMAINING_BODY}}
+
+    <!-- CTA -->
+    <div style="text-align: center; margin: 40px 0 24px 0;">
+      <a href="{{CTA_LINK}}" style="display: inline-block; padding: 16px 36px; background: linear-gradient(135deg, #6C5CE7, #00D2FF); color: #FFFFFF; font-size: 16px; font-weight: bold; border-radius: 30px; text-decoration: none; box-shadow: 0 6px 20px rgba(108,92,231,0.35);">
+        {{CTA_TEXT}}
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div style="padding: 32px 20px; background: #F2F2F7; text-align: center; border-radius: 24px 24px 0 0;">
+    <p style="font-size: 12px; color: #8E8E93; margin: 0 0 4px 0;">{{BRAND_NAME}}</p>
+    <p style="font-size: 11px; color: #B0B0B5; margin: 0;">{{FOOTER_TEXT}}</p>
+  </div>
+
+</div>

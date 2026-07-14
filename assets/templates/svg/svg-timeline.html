@@ -1,0 +1,72 @@
+<!-- SVG Template: Animated Timeline with Scroll Reveal -->
+<!-- Milestones appear sequentially with line drawing and dot popping -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 677 {{SVG_HEIGHT}}" width="100%" height="auto"
+       style="display: block; margin: 0 auto;">
+
+    <defs>
+      <style>
+        @keyframes lineGrow {
+          from { stroke-dashoffset: {{LINE_LENGTH}}; }
+          to { stroke-dashoffset: 0; }
+        }
+        @keyframes dotPop {
+          from { r: 0; }
+          to { r: 8; }
+        }
+        @keyframes fadeInRight {
+          from { opacity: 0; transform: translateX(20px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        .timeline-line {
+          stroke-dasharray: {{LINE_LENGTH}};
+          animation: lineGrow 2s 0.3s ease-out forwards;
+        }
+        .dot-1 { animation: dotPop 0.4s 0.5s ease-out both; }
+        .dot-2 { animation: dotPop 0.4s 1.0s ease-out both; }
+        .dot-3 { animation: dotPop 0.4s 1.5s ease-out both; }
+        .dot-4 { animation: dotPop 0.4s 2.0s ease-out both; }
+        .dot-5 { animation: dotPop 0.4s 2.5s ease-out both; }
+        .content-1 { animation: fadeInRight 0.5s 0.7s ease-out both; }
+        .content-2 { animation: fadeInRight 0.5s 1.2s ease-out both; }
+        .content-3 { animation: fadeInRight 0.5s 1.7s ease-out both; }
+        .content-4 { animation: fadeInRight 0.5s 2.2s ease-out both; }
+        .content-5 { animation: fadeInRight 0.5s 2.7s ease-out both; }
+      </style>
+
+      <linearGradient id="dotGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="{{ACCENT_COLOR}}"/>
+        <stop offset="100%" stop-color="{{ACCENT_COLOR_ALT}}"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Title -->
+    <text x="339" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#333333"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{TIMELINE_TITLE}}
+    </text>
+
+    <!-- Vertical line -->
+    <line x1="52" y1="80" x2="52" y2="{{LINE_END}}" stroke="#E0D5C5" stroke-width="3" class="timeline-line"/>
+
+    {{TIMELINE_ITEMS}}
+
+  </svg>
+
+</div>
+
+<!--
+  Timeline Item Template:
+  <circle cx="52" cy="140" r="8" fill="url(#dotGrad)" class="dot-1"/>
+  <g class="content-1">
+    <text x="80" y="134" font-size="13" fill="#999999"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">{{DATE}}</text>
+    <text x="80" y="156" font-size="16" font-weight="bold" fill="#333333"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">{{EVENT_TITLE}}</text>
+    <text x="80" y="178" font-size="14" fill="#666666"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">{{EVENT_DESCRIPTION}}</text>
+  </g>
+-->

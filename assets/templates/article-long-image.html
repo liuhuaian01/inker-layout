@@ -1,0 +1,22 @@
+<!-- WeChat Article Template: Long Scrolling Image -->
+<!-- Replace {{IMAGE_SEGMENTS}} with actual image URLs -->
+<!-- Images should be 1080px wide, sliced to <5MB segments -->
+
+<div style="margin: 0; padding: 0; max-width: 100%;">
+
+  {{IMAGE_SEGMENTS}}
+
+</div>
+
+<!--
+  Image segment template — copy for each segment:
+  <img src="{{IMAGE_URL}}" style="display: block; width: 100%; margin: 0; padding: 0;">
+
+  Key rules for long images:
+  - All images must have display: block and margin: 0 (no gaps)
+  - Width: 100% ensures full-screen display
+  - No text content needed (image IS the content)
+  - Each segment < 5MB for reliable WeChat upload
+  - Total article < 2MB HTML (images hosted externally)
+  - Cover image: 900x500px recommended
+-->

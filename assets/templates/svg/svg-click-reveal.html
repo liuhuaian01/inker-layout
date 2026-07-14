@@ -1,0 +1,83 @@
+<!-- SVG Template: Click/Tap to Reveal Content -->
+<!-- Uses CSS animation with staggered timing to simulate click-to-reveal -->
+<!-- Replace {{PLACEHOLDER}} values -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 677 {{SVG_HEIGHT}}" width="100%" height="auto"
+       style="display: block; margin: 0 auto;">
+
+    <defs>
+      <style>
+        @keyframes fadeInCard {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulseHint {
+          0%, 100% { opacity: 0.6; }
+          50% { opacity: 1; }
+        }
+        .card-1 { animation: fadeInCard 0.5s 0.5s ease-out both; }
+        .card-2 { animation: fadeInCard 0.5s 0.9s ease-out both; }
+        .card-3 { animation: fadeInCard 0.5s 1.3s ease-out both; }
+        .card-4 { animation: fadeInCard 0.5s 1.7s ease-out both; }
+        .hint { animation: pulseHint 2s ease-in-out infinite; }
+        {{CUSTOM_CSS}}
+      </style>
+
+      <!-- Card background gradient -->
+      <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="{{CARD_COLOR_START}}"/>
+        <stop offset="100%" stop-color="{{CARD_COLOR_END}}"/>
+      </linearGradient>
+
+      <!-- Shadow filter -->
+      <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+        <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.08"/>
+      </filter>
+    </defs>
+
+    <!-- Title -->
+    <text x="339" y="50" text-anchor="middle" font-size="22" font-weight="bold" fill="#333333"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{SECTION_TITLE}}
+    </text>
+
+    <!-- Hint text -->
+    <text x="339" y="78" text-anchor="middle" font-size="12" fill="#999999" class="hint"
+          font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      {{HINT_TEXT}}
+    </text>
+
+    <!-- Card 1 -->
+    <g class="card-1">
+      <rect x="24" y="100" width="629" height="{{CARD_HEIGHT}}" rx="12" fill="url(#cardGrad)" filter="url(#cardShadow)"/>
+      <text x="44" y="132" font-size="16" font-weight="bold" fill="{{CARD_TEXT_COLOR}}"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD1_TITLE}}</text>
+      <text x="44" y="158" font-size="14" fill="{{CARD_TEXT_COLOR}}"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD1_CONTENT}}</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g class="card-2">
+      <rect x="24" y="{{CARD2_Y}}" width="629" height="{{CARD_HEIGHT}}" rx="12" fill="url(#cardGrad)" filter="url(#cardShadow)"/>
+      <text x="44" y="{{CARD2_TEXT_Y}}" font-size="16" font-weight="bold" fill="{{CARD_TEXT_COLOR}}"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD2_TITLE}}</text>
+      <text x="44" y="{{CARD2_TEXT_Y2}}" font-size="14" fill="{{CARD_TEXT_COLOR}}"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD2_CONTENT}}</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g class="card-3">
+      <rect x="24" y="{{CARD3_Y}}" width="629" height="{{CARD_HEIGHT}}" rx="12" fill="url(#cardGrad)" filter="url(#cardShadow)"/>
+      <text x="44" y="{{CARD3_TEXT_Y}}" font-size="16" font-weight="bold" fill="{{CARD_TEXT_COLOR}}"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD3_TITLE}}</text>
+      <text x="44" y="{{CARD3_TEXT_Y2}}" font-size="14" fill="{{CARD_TEXT_COLOR}}"
+            font-family="PingFang SC, Microsoft YaHei, sans-serif">{{CARD3_CONTENT}}</text>
+    </g>
+
+    {{ADDITIONAL_CARDS}}
+
+  </svg>
+
+</div>

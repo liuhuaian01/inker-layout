@@ -1,0 +1,111 @@
+<!-- WeChat Article Template: Chinese Ink Wash (国风墨韵) -->
+<!-- Traditional Chinese aesthetics. Rice paper, vermillion seals, Kaishu/Songti. -->
+<!-- Replace {{PLACEHOLDER}} values before use -->
+
+<div style="max-width: 677px; margin: 0 auto;">
+
+  <!-- Header — rice paper tone -->
+  <div style="padding: 48px 32px 32px 32px; background: #FDF8F0; text-align: center;">
+
+    <!-- Ornamental top mark -->
+    <div style="margin: 0 0 20px 0;">
+      <span style="display: inline-block; width: 24px; height: 1px; background: #C13A2B; vertical-align: middle;"></span>
+      <span style="display: inline-block; width: 4px; height: 4px; margin: 0 10px; vertical-align: middle; background: #C13A2B; border-radius: 50%;"></span>
+      <span style="display: inline-block; width: 24px; height: 1px; background: #C13A2B; vertical-align: middle;"></span>
+    </div>
+
+    <!-- Category label — small, tracked -->
+    <p style="font-size: 12px; color: #8C7B6B; letter-spacing: 6px; margin: 0 0 16px 0; font-family: 'KaiTi', 'STKaiti', serif;">
+      {{CATEGORY_LABEL}}
+    </p>
+
+    <!-- Title — Kaishu -->
+    <h1 style="font-size: 26px; font-weight: normal; color: #1A1A1A; line-height: 1.6; margin: 0 0 8px 0; font-family: 'KaiTi', 'STKaiti', 'Songti SC', serif; letter-spacing: 2px;">
+      {{ARTICLE_TITLE}}
+    </h1>
+
+    <!-- Subtitle -->
+    <p style="font-size: 14px; color: #5C4A3A; line-height: 1.8; margin: 12px 0 0 0; font-family: 'Songti SC', 'SimSun', serif;">
+      {{SUBTITLE}}
+    </p>
+
+    <!-- Divider -->
+    <div style="margin-top: 24px;">
+      <span style="display: inline-block; width: 40px; height: 1px; background: #D4C4A8;"></span>
+    </div>
+
+  </div>
+
+  <!-- Content — rice paper background throughout -->
+  <div style="padding: 32px 32px 0 32px; background: #FDF8F0;">
+
+    {{ARTICLE_BODY}}
+
+    <!-- Chapter/Section with seal stamp number -->
+    <table style="width: 100%; border-collapse: collapse; margin: 40px 0 24px 0;">
+      <tr>
+        <td style="width: 48px; vertical-align: top; padding: 0;">
+          <div style="width: 36px; height: 36px; line-height: 36px; background: #C13A2B; color: #FDF8F0; text-align: center; font-size: 18px; font-weight: bold; font-family: 'KaiTi', 'STKaiti', serif;">{{CHAPTER_NUM}}</div>
+        </td>
+        <td style="vertical-align: middle; padding: 0 0 0 12px;">
+          <h2 style="font-size: 20px; font-weight: normal; color: #1A1A1A; margin: 0; font-family: 'KaiTi', 'STKaiti', 'Songti SC', serif;">
+            {{CHAPTER_TITLE}}
+          </h2>
+        </td>
+      </tr>
+    </table>
+
+    {{CONTINUED_BODY}}
+
+    <!-- Framed image — dark wood frame -->
+    <div style="margin: 40px 0;">
+      <div style="padding: 4px; border: 2px solid #8B4513; background: #FFFFFF;">
+        <img src="{{FRAMED_IMAGE_URL}}" style="display: block; width: 100%; height: auto;">
+      </div>
+      <p style="font-size: 12px; color: #8C7B6B; margin: 10px 0 0 0; text-align: right; font-family: 'KaiTi', 'STKaiti', serif;">
+        {{IMAGE_CAPTION}}
+      </p>
+    </div>
+
+    {{MORE_BODY}}
+
+    <!-- Vermillion quote block -->
+    <div style="margin: 40px 0; padding: 24px 24px 24px 20px; border-left: 3px solid #C13A2B; background: #F5EDE0;">
+      <p style="font-size: 16px; color: #2C2416; line-height: 1.9; margin: 0; font-family: 'KaiTi', 'STKaiti', serif;">
+        "{{BLOCK_QUOTE}}"
+      </p>
+      <p style="font-size: 13px; color: #8C7B6B; margin: 12px 0 0 0; font-family: 'Songti SC', 'SimSun', serif;">
+        —— {{QUOTE_ATTRIBUTION}}
+      </p>
+    </div>
+
+    {{REMAINING_BODY}}
+
+    <!-- Ornamental divider -->
+    <div style="margin: 40px 0; text-align: center;">
+      <span style="display: inline-block; width: 30px; height: 1px; background: #D4C4A8; vertical-align: middle;"></span>
+      <span style="color: #C13A2B; font-size: 16px; margin: 0 12px; vertical-align: middle; font-family: 'KaiTi', 'STKaiti', serif;">◆</span>
+      <span style="display: inline-block; width: 30px; height: 1px; background: #D4C4A8; vertical-align: middle;"></span>
+    </div>
+
+    <!-- CTA as vermillion seal stamp -->
+    <div style="text-align: center; margin: 8px 0 32px 0;">
+      <a href="{{CTA_LINK}}" style="display: inline-block; width: 80px; height: 80px; line-height: 80px; background: #C13A2B; color: #FDF8F0; font-size: 14px; font-weight: bold; border-radius: 50%; text-decoration: none; text-align: center; font-family: 'KaiTi', 'STKaiti', serif; letter-spacing: 2px;">
+        {{CTA_TEXT}}
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer — unadorned -->
+  <div style="padding: 32px 32px 48px 32px; background: #FDF8F0; text-align: center;">
+    <div style="width: 40px; height: 1px; background: #D4C4A8; margin: 0 auto 20px;"></div>
+    <p style="font-size: 13px; color: #8C7B6B; margin: 0 0 4px 0; font-family: 'Songti SC', 'SimSun', serif;">
+      {{PUBLICATION_NAME}}
+    </p>
+    <p style="font-size: 11px; color: #B0A590; margin: 0; font-family: 'Songti SC', 'SimSun', serif;">
+      {{FOOTER_TEXT}}
+    </p>
+  </div>
+
+</div>
