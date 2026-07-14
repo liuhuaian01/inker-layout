@@ -2,7 +2,7 @@
 name: inker-layout
 description: 微信公众号内容排版 Skill。覆盖图文排版、视觉设计、SVG 交互组件，十种风格主题，三阶段问答式引导。触发词：公众号排版、公众号文章、微信推文、长图文、SVG交互、公众号视觉设计。
 author: 刘淮安LIUHUAIAN
-version: 1.0.0
+version: 1.0.1
 ---
 
 # 墨客排版 — 微信公众号编辑器
