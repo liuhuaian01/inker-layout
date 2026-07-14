@@ -47,6 +47,12 @@ inker-layout/
 
 ## 更新日志
 
+### v1.0.2 — 2026-07-14
+
+- 复制机制升级：`execCommand('copy')` → `navigator.clipboard.write()`（Clipboard API）
+- 新增微信安全清洗层：复制前自动清除 `letter-spacing`、`transform`、`position:fixed` 等微信不兼容的 CSS 属性
+- Clipboard API 不可用时自动降级到 execCommand 兜底
+
 ### v1.0.1 — 2026-07-14
 
 - 十种风格主题（时尚/潮流/艺术/国风/极简/科技/生活/奢华/编辑/品牌）

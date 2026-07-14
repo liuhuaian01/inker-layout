@@ -101,22 +101,50 @@
 <!-- /文章内容结束 -->
 
 <script>
-function copyToWechat(){
+function sanitizeForWechat(html){
+  /* 微信会丢弃这些 CSS 属性，提前清除避免样式变形 */
+  var d=document.createElement('div');
+  d.innerHTML=html;
+  var all=d.querySelectorAll('*');
+  for(var i=0;i<all.length;i++){
+    var s=all[i].getAttribute('style');
+    if(!s)continue;
+    /* 移除不兼容属性 */
+    s=s.replace(/letter-spacing\s*:[^;"]+;?/gi,'');
+    s=s.replace(/transform\s*:[^;"]+;?/gi,'');
+    s=s.replace(/animation\s*:[^;"]+;?/gi,'');
+    s=s.replace(/position\s*:\s*(absolute|fixed|sticky)[^;"]*;?/gi,'');
+    s=s.replace(/display\s*:\s*(flex|grid)[^;"]*;?/gi,'');
+    s=s.replace(/z-index\s*:[^;"]+;?/gi,'');
+    /* 百分比单位改px(不安全) */
+    s=s.replace(/([\d.]+)%/g,function(m,n){var v=parseFloat(n);if(v>100)return'100%';return m;});
+    all[i].setAttribute('style',s.replace(/;+/g,';'));
+  }
+  return d.innerHTML;
+}
+
+async function copyToWechat(){
   var content=document.getElementById('article-content');
-  var range=document.createRange();
-  range.selectNodeContents(content);
-  var sel=window.getSelection();
-  sel.removeAllRanges();
-  sel.addRange(range);
+  var html=content.innerHTML;
+  /* 微信安全清洗 */
+  html=sanitizeForWechat(html);
+  var blob=new Blob([html],{type:'text/html'});
   try{
-    document.execCommand('copy');
+    await navigator.clipboard.write([new ClipboardItem({'text/html':blob})]);
     var btn=document.getElementById('copy-btn');
     btn.innerHTML='✅ 已复制！去微信后台 Ctrl+V 粘贴';
     btn.style.background='linear-gradient(135deg,#06AD56,#05944A)';
     setTimeout(function(){btn.innerHTML='📋 一键复制到微信公众号';btn.style.background='linear-gradient(135deg,#07C160,#06AD56)';},3000);
   }catch(e){
-    alert('复制失败，请手动 Ctrl+A 全选后 Ctrl+C 复制');
+    /* 降级：execCommand 兜底 */
+    var range=document.createRange();
+    range.selectNodeContents(content);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    try{document.execCommand('copy');}catch(e2){}
+    sel.removeAllRanges();
+    alert('请手动 Ctrl+A 全选后 Ctrl+C 复制');
   }
-  sel.removeAllRanges();
 }
 </script>
