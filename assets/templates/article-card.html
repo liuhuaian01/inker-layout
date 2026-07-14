@@ -1,4 +1,18 @@
 <!-- WeChat Article Template: Card Grid Content Layout -->
+
+<!-- 复制工具栏 — 浏览器预览时显示,复制时自动排除 -->
+<div id="copy-toolbar" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#1a1a1a;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);">
+  <button id="copy-btn" onclick="copyToWechat()" style="padding:10px 28px;background:linear-gradient(135deg,#07C160,#06AD56);color:#fff;border:none;border-radius:24px;font-size:15px;font-weight:bold;cursor:pointer;font-family:'PingFang SC','Microsoft YaHei',sans-serif;">
+    📋 一键复制到微信公众号
+  </button>
+  <span style="color:#888;font-size:12px;font-family:'PingFang SC','Microsoft YaHei',sans-serif;">复制后 Ctrl+V 粘贴到微信后台</span>
+</div>
+
+<div style="height:50px;"></div>
+
+<!-- 文章内容 — 此区域内的内容为复制目标 -->
+<div id="article-content">
+
 <!-- Replace {{PLACEHOLDER}} values before use -->
 
 <div style="max-width: 677px; margin: 0 auto; padding: 32px 16px 24px;">
@@ -57,3 +71,28 @@
   </div>
 
 </div>
+
+
+</div>
+<!-- /文章内容结束 -->
+
+<script>
+function copyToWechat(){
+  var content=document.getElementById('article-content');
+  var range=document.createRange();
+  range.selectNodeContents(content);
+  var sel=window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+  try{
+    document.execCommand('copy');
+    var btn=document.getElementById('copy-btn');
+    btn.innerHTML='✅ 已复制！去微信后台 Ctrl+V 粘贴';
+    btn.style.background='linear-gradient(135deg,#06AD56,#05944A)';
+    setTimeout(function(){btn.innerHTML='📋 一键复制到微信公众号';btn.style.background='linear-gradient(135deg,#07C160,#06AD56)';},3000);
+  }catch(e){
+    alert('复制失败，请手动 Ctrl+A 全选后 Ctrl+C 复制');
+  }
+  sel.removeAllRanges();
+}
+</script>
